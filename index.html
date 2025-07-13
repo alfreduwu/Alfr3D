@@ -1,157 +1,1238 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corte & Crea MX</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f6f6f6;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .banner {
-      background: url('https://via.placeholder.com/1200x300?text=Corte%20%26%20Crea%20MX') no-repeat center;
-      background-size: cover;
-      height: 200px;
-    }
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .producto {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .producto img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .carrito {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #eee;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfr3D - Especialistas en Corte Láser e Impresión 3D</title>
+    <style>
+        :root {
+            --primary-color: #E63946; /* Rojo vibrante */
+            --secondary-color: #1A1A1A; /* Negro casi puro */
+            --accent-color: #D90429; /* Rojo más oscuro */
+            --light-color: #F1FAEE; /* Blanco roto */
+            --dark-color: #0A0A0A; /* Negro profundo */
+            --text-color: #333333;
+            --text-light: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .logo-placeholder {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .brand-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
+                        url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light-color);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+        
+        .products .section-title {
+            color: var(--light-color);
+        }
+        
+        .products .section-title::after {
+            background-color: var(--light-color);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: var(--dark-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary-color);
+        }
+        
+        .product-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-content {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--light-color);
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .product-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .product-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+        
+        .testimonials .section-title {
+            color: var(--light-color);
+        }
+        
+        .testimonials .section-title::after {
+            background-color: var(--light-color);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                position: static;
+                transform: none;
+                margin-bottom: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <h1>Corte & Crea MX</h1>
-  <p>Regalos personalizados con corte láser e impresión 3D</p>
-</header>
-
-<div class="banner"></div>
-
-<section class="productos">
-  <div class="producto">
-    <img src="https://via.placeholder.com/200x150?text=Termo+grabado" alt="Termo">
-    <h3>Termo personalizado 30oz</h3>
-    <p>$280 MXN</p>
-    <button class="btn" onclick="agregarCarrito('Termo personalizado 30oz', 280)">Agregar al carrito</button>
-  </div>
-  <div class="producto">
-    <img src="https://via.placeholder.com/200x150?text=Llavero+MDF" alt="Llavero">
-    <h3>Llavero grabado en MDF</h3>
-    <p>$40 MXN</p>
-    <button class="btn" onclick="agregarCarrito('Llavero grabado en MDF', 40)">Agregar al carrito</button>
-  </div>
-  <div class="producto">
-    <img src="https://via.placeholder.com/200x150?text=Soporte+Celular+3D" alt="Soporte">
-    <h3>Soporte para celular (3D)</h3>
-    <p>$70 MXN</p>
-    <button class="btn" onclick="agregarCarrito('Soporte para celular (3D)', 70)">Agregar al carrito</button>
-  </div>
-  <div class="producto">
-    <img src="https://via.placeholder.com/200x150?text=Placa+acrilico" alt="Placa">
-    <h3>Placa conmemorativa acrílica</h3>
-    <p>$150 MXN</p>
-    <button class="btn" onclick="agregarCarrito('Placa conmemorativa acrílica', 150)">Agregar al carrito</button>
-  </div>
-  <div class="producto">
-    <img src="https://via.placeholder.com/200x150?text=Puzzle+pareja" alt="Puzzle">
-    <h3>Llavero puzzle de pareja</h3>
-    <p>$80 MXN</p>
-    <button class="btn" onclick="agregarCarrito('Llavero puzzle de pareja', 80)">Agregar al carrito</button>
-  </div>
-</section>
-
-<div class="carrito" id="carrito">
-  <h3>Carrito de compras</h3>
-  <ul id="lista-carrito"></ul>
-  <p><strong>Total:</strong> $<span id="total">0</span> MXN</p>
-  <a class="btn" id="whatsapp-link" href="#" target="_blank">Finalizar pedido</a>
-</div>
-
-<footer>
-  <p>&copy; 2025 Corte & Crea MX. Todos los derechos reservados.</p>
-</footer>
-
-<script>
-  let carrito = [];
-
-  function agregarCarrito(nombre, precio) {
-    carrito.push({ nombre, precio });
-    actualizarCarrito();
-  }
-
-  function actualizarCarrito() {
-    const lista = document.getElementById('lista-carrito');
-    const totalSpan = document.getElementById('total');
-    const link = document.getElementById('whatsapp-link');
-
-    lista.innerHTML = '';
-    let total = 0;
-    let mensaje = 'Hola, quiero ordenar:%0A';
-
-    carrito.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = `${item.nombre} - $${item.precio}`;
-      lista.appendChild(li);
-      total += item.precio;
-      mensaje += `- ${item.nombre} - $${item.precio}%0A`;
-    });
-
-    totalSpan.textContent = total;
-    mensaje += `Total: $${total}`;
-    link.href = `https://wa.me/5215555555555?text=${mensaje}`;
-  }
-</script>
-
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">A3D</div>
+            </div>
+            <h1 class="brand-title">Alfr3D</h1>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <div>
+                <h1>Innovación en Corte Láser e Impresión 3D</h1>
+                <p>Creando soluciones personalizadas con tecnología de vanguardia para tus proyectos más ambiciosos.</p>
+                <a href="#contacto" class="btn">Cotiza tu proyecto</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Impresión 3D">
+                    </div>
+                    <div class="service-content">
+                        <h3>Impresión 3D</h3>
+                        <p>Ofrecemos impresión 3D de alta calidad con diversos materiales como PLA, ABS, PETG, TPU y más. Desde prototipos hasta productos finales.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Corte Láser">
+                    </div>
+                    <div class="service-content">
+                        <h3>Corte Láser</h3>
+                        <p>Corte de precisión en materiales como acrílico, madera, MDF, cuero y más. Ideal para proyectos personalizados y producción en serie.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Diseño 3D">
+                    </div>
+                    <div class="service-content">
+                        <h3>Diseño 3D</h3>
+                        <p>Servicio de diseño y modelado 3D profesional para convertir tus ideas en archivos listos para impresión o corte láser.</p>
+                        <a href="#" class="btn">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Llavero personalizado">
+                        <span class="product-badge">Nuevo</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Llavero Personalizado</h3>
+                        <p class="product-price">$99.00 MXN</p>
+                        <p class="product-description">Llavero de acrílico cortado láser con diseño personalizado. Disponible en varios colores.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soporte para celular">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Soporte para Celular</h3>
+                        <p class="product-price">$149.00 MXN</p>
+                        <p class="product-description">Soporte ergonómico impreso en 3D, compatible con la mayoría de modelos de smartphones.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584735422186-97a4e2b8fe7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Porta retratos">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Porta Retratos</h3>
+                        <p class="product-price">$199.00 MXN</p>
+                        <p class="product-description">Porta fotos de madera cortado láser con diseños modernos y elegantes.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Figura personalizada">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Figura Personalizada</h3>
+                        <p class="product-price">$349.00 MXN</p>
+                        <p class="product-description">Figura impresa en 3D basada en tu diseño o fotografía. Varios tamaños disponibles.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Letras decorativas">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Letras Decorativas</h3>
+                        <p class="product-price">$249.00 MXN</p>
+                        <p class="product-description">Letras de acrílico o madera cortadas láser, perfectas para decoración de interiores.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Caja organizadora">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Caja Organizadora</h3>
+                        <p class="product-price">$299.00 MXN</p>
+                        <p class="product-description">Caja de madera cortada láser con compartimentos ajustables para tus necesidades.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 7 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soporte para libros">
+                        <span class="product-badge">Oferta</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Soporte para Libros</h3>
+                        <p class="product-price">$179.00 MXN</p>
+                        <p class="product-description">Soporte elegante para libros, disponible en varios diseños y colores.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 8 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Reloj de pared">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Reloj de Pared</h3>
+                        <p class="product-price">$399.00 MXN</p>
+                        <p class="product-description">Reloj de diseño único cortado láser en madera o acrílico.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 9 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Macetero geométrico">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Macetero Geométrico</h3>
+                        <p class="product-price">$229.00 MXN</p>
+                        <p class="product-description">Macetero moderno impreso en 3D con diseños geométricos únicos.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 10 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584735422186-97a4e2b8fe7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Juego de ajedrez">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Juego de Ajedrez</h3>
+                        <p class="product-price">$599.00 MXN</p>
+                        <p class="product-description">Juego de ajedrez completo con piezas impresas en 3D y tablero cortado láser.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 11 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Lámpara moderna">
+                        <span class="product-badge">Nuevo</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Lámpara Moderna</h3>
+                        <p class="product-price">$499.00 MXN</p>
+                        <p class="product-description">Lámpara de diseño con piezas cortadas láser que crean patrones de luz únicos.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 12 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soporte para audífonos">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Soporte para Audífonos</h3>
+                        <p class="product-price">$169.00 MXN</p>
+                        <p class="product-description">Soporte ergonómico para audífonos impreso en 3D, mantén tu escritorio ordenado.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 13 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Marco espejo">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Marco para Espejo</h3>
+                        <p class="product-price">$349.00 MXN</p>
+                        <p class="product-description">Marco decorativo para espejos cortado láser en madera con diseños personalizables.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 14 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584735422186-97a4e2b8fe7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Joyero">
+                        <span class="product-badge">Popular</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Joyero Personalizado</h3>
+                        <p class="product-price">$279.00 MXN</p>
+                        <p class="product-description">Joyero de madera cortado láser con compartimentos para organizar tus accesorios.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 15 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Estatuilla personalizada">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Estatuilla Personalizada</h3>
+                        <p class="product-price">$449.00 MXN</p>
+                        <p class="product-description">Estatuilla impresa en 3D basada en tu diseño o personaje favorito.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 16 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Separadores de libros">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Separadores de Libros</h3>
+                        <p class="product-price">$89.00 MXN</p>
+                        <p class="product-description">Set de 3 separadores de libros cortados láser con diseños creativos.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 17 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soporte para laptop">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Soporte para Laptop</h3>
+                        <p class="product-price">$199.00 MXN</p>
+                        <p class="product-description">Soporte ergonómico para laptop impreso en 3D, mejora tu postura al trabajar.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 18 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Caja de regalo">
+                        <span class="product-badge">Oferta</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Caja de Regalo</h3>
+                        <p class="product-price">$159.00 MXN</p>
+                        <p class="product-description">Caja de regalo personalizada cortada láser con grabado de tu elección.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 19 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584735422186-97a4e2b8fe7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Organizador de escritorio">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Organizador de Escritorio</h3>
+                        <p class="product-price">$329.00 MXN</p>
+                        <p class="product-description">Organizador modular impreso en 3D para mantener tu espacio de trabajo ordenado.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 20 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Portalápices">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Portalápices Creativo</h3>
+                        <p class="product-price">$139.00 MXN</p>
+                        <p class="product-description">Portalápices con diseño único cortado láser en madera o acrílico.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 21 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Tazón decorativo">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Tazón Decorativo</h3>
+                        <p class="product-price">$179.00 MXN</p>
+                        <p class="product-description">Tazón impreso en 3D con diseños geométricos, perfecto para decoración.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 22 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Reloj de escritorio">
+                        <span class="product-badge">Nuevo</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Reloj de Escritorio</h3>
+                        <p class="product-price">$249.00 MXN</p>
+                        <p class="product-description">Reloj moderno con base de madera cortada láser y mecanismo de alta calidad.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 23 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1615789591457-74a63395c990?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Perchero">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Perchero de Pared</h3>
+                        <p class="product-price">$299.00 MXN</p>
+                        <p class="product-description">Perchero funcional y decorativo cortado láser en madera con diseños modernos.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 24 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1584735422186-97a4e2b8fe7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Soporte para tablet">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Soporte para Tablet</h3>
+                        <p class="product-price">$189.00 MXN</p>
+                        <p class="product-description">Soporte ajustable para tablet impreso en 3D, compatible con varios modelos.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 25 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Lámpara de noche">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Lámpara de Noche</h3>
+                        <p class="product-price">$349.00 MXN</p>
+                        <p class="product-description">Lámpara con diseño 3D que proyecta patrones de luz relajantes en tu habitación.</p>
+                        <a href="#" class="product-btn">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">Sobre Alfr3D</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Innovación y calidad en cada proyecto</h2>
+                    <p>En Alfr3D nos apasiona la fabricación digital y la creación de soluciones personalizadas para nuestros clientes. Con más de 5 años de experiencia en el sector, hemos perfeccionado nuestras técnicas de corte láser e impresión 3D para ofrecer productos de la más alta calidad.</p>
+                    <p>Nuestro equipo de diseñadores e ingenieros trabaja contigo para entender tus necesidades y transformar tus ideas en productos tangibles. Ya sea un prototipo funcional, una pieza de decoración o un producto final, en Alfr3D tenemos la tecnología y la experiencia para hacerlo realidad.</p>
+                    <p>Utilizamos materiales de primera calidad y maquinaria de última generación para garantizar resultados excepcionales en cada proyecto que emprendemos.</p>
+                    <a href="#contacto" class="btn">Contáctanos</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipo de Alfr3D trabajando">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Increíble calidad en los productos. Pedí unas figuras personalizadas para mi negocio y superaron todas mis expectativas. El acabado es perfecto y el servicio al cliente excepcional.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente satisfecho">
+                        </div>
+                        <div class="author-info">
+                            <h4>María González</h4>
+                            <p>Dueña de cafetería</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Trabajamos con Alfr3D para prototipos de nuestros productos y los resultados han sido fantásticos. Rapidez, profesionalismo y atención al detalle. Definitivamente nuestro proveedor de confianza.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente satisfecho">
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Mendoza</h4>
+                            <p>CEO de startup tecnológica</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Encargué un letrero personalizado para mi negocio y quedé maravillado con el resultado. La precisión del corte láser es impresionante y el material de primera calidad. ¡Volveré por más!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente satisfecho">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Torres</h4>
+                            <p>Dueña de boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Dirección</h4>
+                                <p>Calle Innovación 123, Col. Tecnológica, CDMX</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Teléfono</h4>
+                                <p>+52 55 1234 5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>contacto@alfr3d.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-text">
+                                <h4>Horario</h4>
+                                <p>Lunes a Viernes: 9am - 6pm<br>Sábados: 10am - 2pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">💻</a>
+                        <a href="#">📸</a>
+                        <a href="#">🎥</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Alfr3D</h3>
+                    <p>Especialistas en corte láser e impresión 3D. Transformamos tus ideas en realidad con tecnología de vanguardia.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Impresión 3D</a></li>
+                        <li><a href="#">Corte Láser</a></li>
+                        <li><a href="#">Diseño 3D</a></li>
+                        <li><a href="#">Prototipado</a></li>
+                        <li><a href="#">Producción en serie</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces útiles</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Guía de materiales</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir noticias y promociones especiales.</p>
+                    <form>
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Alfr3D. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
