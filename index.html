@@ -52,6 +52,8 @@
         }
         
         .logo-container {
+            width: 100px;  /* Cambia este valor (ancho) */
+            height: 100px; /* Cambia este valor (alto) */
             position: absolute;
             left: 0;
             top: 50%;
@@ -64,6 +66,13 @@
             justify-content: center;
             align-items: center;
             border: 3px solid var(--primary-color);
+        }
+        .logo-container img {
+            width: 90%;    /* Controla cuánto espacio ocupa la imagen dentro del contenedor */
+            height: auto;  /* Mantiene la proporción */
+            /* Opcional: */
+            max-width: 150px; /* Límite máximo de expansión */
+            min-width: 50px;  /* Límite mínimo */
         }
         
         .logo-placeholder {
