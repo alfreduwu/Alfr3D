@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corte & Crea MX</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f6f6f6;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .banner {
+      background: url('https://via.placeholder.com/1200x300?text=Corte%20%26%20Crea%20MX') no-repeat center;
+      background-size: cover;
+      height: 200px;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .producto {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .producto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .carrito {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Corte & Crea MX</h1>
+  <p>Regalos personalizados con corte láser e impresión 3D</p>
+</header>
+
+<div class="banner"></div>
+
+<section class="productos">
+  <div class="producto">
+    <img src="https://via.placeholder.com/200x150?text=Termo+grabado" alt="Termo">
+    <h3>Termo personalizado 30oz</h3>
+    <p>$280 MXN</p>
+    <button class="btn" onclick="agregarCarrito('Termo personalizado 30oz', 280)">Agregar al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://via.placeholder.com/200x150?text=Llavero+MDF" alt="Llavero">
+    <h3>Llavero grabado en MDF</h3>
+    <p>$40 MXN</p>
+    <button class="btn" onclick="agregarCarrito('Llavero grabado en MDF', 40)">Agregar al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://via.placeholder.com/200x150?text=Soporte+Celular+3D" alt="Soporte">
+    <h3>Soporte para celular (3D)</h3>
+    <p>$70 MXN</p>
+    <button class="btn" onclick="agregarCarrito('Soporte para celular (3D)', 70)">Agregar al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://via.placeholder.com/200x150?text=Placa+acrilico" alt="Placa">
+    <h3>Placa conmemorativa acrílica</h3>
+    <p>$150 MXN</p>
+    <button class="btn" onclick="agregarCarrito('Placa conmemorativa acrílica', 150)">Agregar al carrito</button>
+  </div>
+  <div class="producto">
+    <img src="https://via.placeholder.com/200x150?text=Puzzle+pareja" alt="Puzzle">
+    <h3>Llavero puzzle de pareja</h3>
+    <p>$80 MXN</p>
+    <button class="btn" onclick="agregarCarrito('Llavero puzzle de pareja', 80)">Agregar al carrito</button>
+  </div>
+</section>
+
+<div class="carrito" id="carrito">
+  <h3>Carrito de compras</h3>
+  <ul id="lista-carrito"></ul>
+  <p><strong>Total:</strong> $<span id="total">0</span> MXN</p>
+  <a class="btn" id="whatsapp-link" href="#" target="_blank">Finalizar pedido</a>
+</div>
+
+<footer>
+  <p>&copy; 2025 Corte & Crea MX. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+  let carrito = [];
+
+  function agregarCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+    const link = document.getElementById('whatsapp-link');
+
+    lista.innerHTML = '';
+    let total = 0;
+    let mensaje = 'Hola, quiero ordenar:%0A';
+
+    carrito.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.nombre} - $${item.precio}`;
+      lista.appendChild(li);
+      total += item.precio;
+      mensaje += `- ${item.nombre} - $${item.precio}%0A`;
+    });
+
+    totalSpan.textContent = total;
+    mensaje += `Total: $${total}`;
+    link.href = `https://wa.me/5215555555555?text=${mensaje}`;
+  }
+</script>
+
+</body>
+</html>
